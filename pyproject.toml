@@ -39,7 +39,7 @@ python_classes = ["Test*"]
 python_functions = ["test_*"]
 
 [tool.coverage.run]
-source = ["rl_trading"]
+source = ["market_regime_detection"]
 omit = [
     "*/tests/*",
     "*/test_*.py",
