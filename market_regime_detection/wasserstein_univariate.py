@@ -8,7 +8,7 @@ import numpy as np
 from scipy.stats import wasserstein_distance
 
 
-def split_array_into_windows(market_returns: np.array, window_shape: int):
+def split_array_into_windows(market_returns: np.ndarray, window_shape: int):
     """
     Split market returns array into overlapping arrays
     with each having "window_shape" days in it
@@ -27,7 +27,7 @@ def wasserstein_barycenter(cluster):
 
 
 def wasserstein_k_means(
-    chunks: np.array,
+    chunks: np.ndarray,
     n_clusters: int = 2,
     max_iter: int = 50,
     tol: float = 1e-4,
@@ -37,7 +37,7 @@ def wasserstein_k_means(
     ----
     Parameters
     ----
-    Chunks: np.array
+    Chunks: np.ndarray
         previously split data [n_chunks, n_days]
         (empirical distibutions or measures)
     n_clusters:  int
@@ -86,7 +86,7 @@ def wasserstein_k_means(
     return assignments, clusters, centroids
 
 
-def get_corrected_assignments(assignments: np.array, window_shape: int) -> list[int]:
+def get_corrected_assignments(assignments: np.ndarray, window_shape: int) -> list[int]:
     """
     Since one observation falls into multiple chunks
     we have to detect which market regime it appears in
@@ -95,7 +95,7 @@ def get_corrected_assignments(assignments: np.array, window_shape: int) -> list[
     ---
     Parameters
     ---
-    assignments: np.array:
+    assignments: np.ndarray:
         result of clusterization
     window_shape: int
         days in one chunk
