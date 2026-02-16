@@ -4,8 +4,6 @@
 
 Market Regime Clustering using Wasserstein K-Means (Hovarth, Issa, Miguruza, 2021). This project implements original univariate clustering based on Wasserstein distance. It also adds multivariate clustering and compares results with statistical breakpoint tests.
 
-## Theory
-
 ## Testing
 
 We test the validity of breaks in proposed by the clusterization in two ways:
