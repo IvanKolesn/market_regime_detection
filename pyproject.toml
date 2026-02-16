@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "market_regime_detection"
+version = "0.0.1"
+description = "Detection of market regime changes"
+authors = [
+    {name = "Ivan Kolesnikov", email = "ivan_kolesnikov@yahoo.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11, <3.13"
+dependencies = [
+    "pandas>=2.3.3",
+    "numpy>=2.2.6",
+    "yfinance>=1.1.0",
+    "scipy>=1.14.1",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.14.0",
+    "pytest-xdist>=3.6.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["market_regime_detection"]
+exclude = ["tests*", "notebooks*", "data*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["rl_trading"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/setup.py",
+    "*/conftest.py",
+]
+branch = true
